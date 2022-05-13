@@ -1,0 +1,76 @@
+.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: lightgray;
+    border: none;
+    color: black;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    padding-right: 15px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+li {
+    width: 60vw;
+    list-style-type: none;
+    border: solid black 1px;
+    margin-bottom: 5px;
+    padding: 5px;
+    animation-duration: 0.3s;
+    display: flex;
+    justify-content: space-between;
+}
+
+li:hover{
+    background-color: lightyellow;
+}
+
+#descricaoTarefa{
+    width: 45vw;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.close:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.remove {
+    color: red;
+    font-weight: bold;
+}
