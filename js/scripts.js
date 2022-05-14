@@ -11,13 +11,17 @@ if(listaTarefas != null) {
 } 
 
 function add() {
-    const descricaoTarefa = JSON.stringify(document.getElementById('descricaoTarefa').value);
-    novaLista.data.push(descricaoTarefa);
-
-    console.log(novaLista)
-    storage.setItem('listaTarefas', JSON.stringify(novaLista));
+    if (document.getElementById('descricaoTarefa').value === "") {
+        console.log('Não foi informado a tarefa para ser adicionada, verifique!');
+        alert('Não foi informado a tarefa para ser adicionada, verifique!');
+    } else {
+        const descricaoTarefa = JSON.stringify(document.getElementById('descricaoTarefa').value)
+        novaLista.data.push(descricaoTarefa);
+        
+        console.log(novaLista)
+        storage.setItem('listaTarefas', JSON.stringify(novaLista));
+    }
     
-    // alert("Tarefa adicionada!");
     listar();
 }
 
