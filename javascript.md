@@ -390,6 +390,147 @@ Exemplo prático:
 </body>
 </html>
 ```
+### 2. Criando e Adicionando Elementos
+#### 2.1. document.createElement()
+
+Explicação: O método document.createElement() cria um novo elemento HTML no DOM. Você passa uma string que especifica o tipo de elemento a ser criado.
+
+Exemplo prático:
+
+```javascript
+
+// Cria um novo elemento <p>
+let paragrafo = document.createElement('p');
+paragrafo.textContent = 'Este é um novo parágrafo.';
+
+// Adiciona o novo parágrafo ao corpo do documento
+document.body.appendChild(paragrafo);
+```
+#### 2.2. appendChild()
+
+Explicação: O método appendChild() adiciona um nó (um elemento ou outro tipo de nó) como o último filho de um elemento pai no DOM.
+
+Exemplo prático:
+
+```javascript
+
+// Cria um novo elemento <ul>
+let lista = document.createElement('ul');
+
+// Cria e adiciona itens à lista
+for (let i = 1; i <= 3; i++) {
+    let item = document.createElement('li');
+    item.textContent = 'Item ' + i;
+    lista.appendChild(item);
+}
+
+// Adiciona a lista ao corpo do documento
+document.body.appendChild(lista);
+```
+
+#### 2.3. prepend()
+
+Explicação: O método prepend() adiciona um ou mais nós como o primeiro filho de um elemento pai no DOM. É útil quando você deseja adicionar novos elementos no início de um container.
+
+Exemplo prático:
+
+```javascript
+
+// Cria um novo elemento <div> com alguns itens
+let div = document.createElement('div');
+let novoItem = document.createElement('p');
+novoItem.textContent = 'Este é o novo item no início.';
+
+// Adiciona o novo item como o primeiro filho da div
+div.prepend(novoItem);
+
+// Adiciona a div ao corpo do documento
+document.body.appendChild(div);
+```
+
+### 3. Manipulação de Atributos e Classes
+
+Explicação:
+
+    element.setAttribute(): Define o valor de um atributo para o elemento.
+    element.classList.add(): Adiciona uma classe ao elemento.
+
+Exemplo prático:
+
+```javascript
+
+let div = document.createElement('div');
+div.setAttribute('id', 'minhaDiv');
+div.classList.add('caixa');
+
+document.body.appendChild(div);
+
+```
+
+### 4. Exemplos Práticos
+
+#### Exemplo 1:
+
+    Crie um botão que, ao ser clicado, adiciona um novo item no início de uma lista não ordenada <ul> existente na página.
+    Cada item deve ter um texto gerado dinamicamente.
+
+Código:
+
+```html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Itens no Início</title>
+</head>
+<body>
+    <ul id="lista"></ul>
+    <button id="adicionarItem">Adicionar Item no Início</button>
+
+    <script>
+        document.getElementById('adicionarItem').addEventListener('click', function() {
+            let ul = document.getElementById('lista');
+            let li = document.createElement('li');
+            li.textContent = 'Novo Item ' + (ul.children.length + 1);
+            ul.prepend(li);
+        });
+    </script>
+</body>
+</html>
+```
+
+#### Exemplo 2:
+
+    Crie um formulário com um campo de texto e um botão.
+    Ao clicar no botão, crie um novo parágrafo com o texto do campo e adicione-o ao início do corpo do documento.
+
+Código:
+
+```html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Parágrafo no Início</title>
+</head>
+<body>
+    <input type="text" id="campoTexto" placeholder="Digite algo">
+    <button id="adicionarParagrafo">Adicionar Parágrafo no Início</button>
+
+    <script>
+        document.getElementById('adicionarParagrafo').addEventListener('click', function() {
+            let texto = document.getElementById('campoTexto').value;
+            let p = document.createElement('p');
+            p.textContent = texto;
+            document.body.prepend(p);
+        });
+    </script>
+</body>
+</html>
+```
+
 
 ## Armazenamento Local com `localStorage`
 
@@ -519,3 +660,24 @@ Código
 </body>
 </html>
 ```
+
+
+## Atividades de Prática JavaScript
+
+1. **Modificar Texto com JavaScript**
+   - Crie um arquivo HTML com um parágrafo e um botão. Ao clicar no botão, altere o texto do parágrafo para "Texto alterado com JavaScript".
+
+2. **Exibir Alerta com o Nome do Usuário**
+   - Crie um arquivo HTML com um botão. Ao clicar no botão, exiba um prompt pedindo o nome do usuário e, em seguida, um alerta com "Olá, [nome]".
+
+3. **Contador Simples**
+   - Crie um arquivo HTML com um parágrafo e um botão. O parágrafo deve exibir um número que começa em 0. Cada vez que o botão é clicado, o número deve aumentar em 1.
+
+4. **Verificar Idade**
+   - Crie um arquivo HTML com um campo de texto para a idade e um botão. Ao clicar no botão, informe se a pessoa é maior de idade (18 anos ou mais) ou menor de idade.
+
+5. **Exibir Dados do LocalStorage**
+   - Crie um arquivo HTML com um campo de texto para o nome e um botão para salvar. Armazene o nome em `localStorage`. Adicione um segundo botão para recuperar e exibir o nome armazenado.
+
+6. **Exibir Conteúdo de um Array**
+   - Crie um arquivo JavaScript que declare um array com 5 itens (por exemplo, frutas). Utilize um loop `for` para exibir cada item do array no console.
