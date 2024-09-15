@@ -15,8 +15,11 @@ function add() {
         console.log('Não foi informado a tarefa para ser adicionada, verifique!');
         alert('Não foi informado a tarefa para ser adicionada, verifique!');
     } else {
-        const descricaoTarefa = JSON.stringify(document.getElementById('descricaoTarefa').value)
-        novaLista.data.push(descricaoTarefa);
+        const tarefa = {
+            descricao: document.getElementById('descricaoTarefa').value,
+            concluida: false
+        };
+        novaLista.data.push(tarefa);
         
         console.log(novaLista)
         storage.setItem('listaTarefas', JSON.stringify(novaLista));
@@ -25,47 +28,73 @@ function add() {
     listar();
 }
 
-function listar(){
+function listar() {
     const elementUl = document.getElementById("tarefas");
     const elementInputDescricao = document.getElementById("descricaoTarefa");
-    for (let i =0; i < novaLista.data.length; i++) {
-        if (document.getElementById("#"+i) != null) {
-            document.getElementById("#"+i).remove();
-        }
-
-        let descricao = novaLista.data[i];
-        descricao = descricao.replaceAll('"', '');
-
+    elementUl.innerHTML = '';
+    
+    for (let i = 0; i < novaLista.data.length; i++) {
+        let descricao = novaLista.data[i].descricao;
+        let concluida = novaLista.data[i].concluida;
+        
         const elementLi = document.createElement("li");
         elementLi.id = "#"+i;
 
-        const elementSpan = document.createElement("span");
-        elementSpan.textContent = "tarefa: " + (i+1);
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = concluida;
+        checkbox.classList.add("concluir");
+        checkbox.addEventListener('click', () => concluir(i));
 
         const elementParagrafo = document.createElement("p");
         elementParagrafo.textContent = descricao;
 
-        const elementA = document.createElement("a");
-        elementA.classList.add("close");
-        elementA.textContent = "X";
-        elementA.classList.add("remove");
+        if (concluida) {
+            elementParagrafo.classList.add('concluida');
+        }
 
-        elementA.onclick = function () {
+        const elementEditar = document.createElement("button");
+        elementEditar.textContent = "Editar";
+        elementEditar.classList.add("edit");
+        elementEditar.addEventListener('click', () => editarTarefa(i));
+
+        const elementExcluir = document.createElement("a");
+        elementExcluir.classList.add("close");
+        elementExcluir.textContent = "X";
+        elementExcluir.classList.add("remove");
+        elementExcluir.onclick = function () {
             deletaTarefa(i);
             document.getElementById("#"+i).remove();
         };
 
-        elementLi.appendChild(elementSpan);
+        elementLi.appendChild(checkbox);
         elementLi.appendChild(elementParagrafo);
-        elementLi.appendChild(elementA);
-
+        elementLi.appendChild(elementEditar);
+        elementLi.appendChild(elementExcluir);
+        
         elementUl.prepend(elementLi);
 
         elementInputDescricao.value = '';
     }
 }
 
+function editarTarefa(index) {
+    const novaDescricao = prompt("Edite a descrição da tarefa:", novaLista.data[index].descricao);
+    if (novaDescricao !== null) {
+        novaLista.data[index].descricao = novaDescricao;
+        storage.setItem('listaTarefas', JSON.stringify(novaLista));
+        listar();
+    }
+}
+
 function deletaTarefa(index) {
     novaLista.data.splice(index, 1);
     storage.setItem("listaTarefas", JSON.stringify(novaLista));
+    listar();
+}
+
+function concluir(index) {
+    novaLista.data[index].concluida = !novaLista.data[index].concluida;
+    storage.setItem('listaTarefas', JSON.stringify(novaLista));
+    listar();
 }
