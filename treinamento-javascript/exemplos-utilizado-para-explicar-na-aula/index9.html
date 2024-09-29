@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando Laços de Repetição (for, while, do...while)</title>
+</head>
+
+<body>
+    <h1>Praticando Laços de Repetição (for, while, do...while)</h1>
+</body>
+<script>
+    let num = prompt("Informe o número?")
+    let opcao = prompt("Digite o simbolo de qual operação deseja efetuar: +, -, *, /")
+
+    num = Number(num)
+
+    var resStr = "Resultado: \n";
+    if (opcao === "+") {
+        console.log("somando....")
+
+        for (let i = 1; i <= 10; i++) {
+            let res = num + i;
+            resStr += "\n" + num + opcao + i + " = " + res;
+        }
+    } else if (opcao === "-") {
+        console.log("subtraindo....")
+
+        for (let i = 1; i <= 10; i++) {
+            let res = num - i;
+            resStr += "\n" + num + opcao + i + " = " + res;
+        }
+    } else if (opcao === "*") {
+        console.log("multiplicando....")
+
+        for (let i = 1; i <= 10; i++) {
+            let res = num * i;
+            resStr += "\n" + num + opcao + i + " = " + res;
+        }
+    } else if (opcao === "/") {
+        console.log("divindo....")
+
+        for (let i = 1; i <= 10; i++) {
+            let res = num / i;
+            resStr += "\n" + num + opcao + i + " = " + res;
+        }
+    } else {
+        resStr = "Opção inválida!"
+    }
+
+    alert(resStr)
+</script>
+
+</html>
