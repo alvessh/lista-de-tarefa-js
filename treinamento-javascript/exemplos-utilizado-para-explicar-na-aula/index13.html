@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando Dicionários (Objetos como Dicionários)</title>
+</head>
+
+<body>
+    <h1>Praticando Dicionários (Objetos como Dicionários)</h1>
+</body>
+<script>
+
+    let pessoa = {
+        nome: "Bia",
+        idade: 25,
+        profissao: "Design",
+        saudacao: function () {
+            return "Olá, meu nome é " + this.nome + " e tenho " + this.idade + " anos";
+        },
+        profissao: function () {
+            return "Trabalho com design.";
+        },
+        minhaIdade: function () {
+            return "Tenho " + this.idade + " anos."
+        }
+    };
+
+    let pessoa1 = {
+        nome: "João",
+        idade: 27,
+        profissao: "Soldador",
+        saudacao: function () {
+            return "Olá, meu nome é " + this.nome + " e tenho " + this.idade + " anos";
+        },
+        profissao: function () {
+            return "Trabalho com solda.";
+        },
+        minhaIdade: function () {
+            return "Tenho " + this.idade + " anos."
+        }
+    };
+
+
+    let pessoas = {
+        "jdfklasjdlfkaj": pessoa,
+        "dfajkjqos": pessoa1
+    };
+
+    for (let j = 0; j < Object.keys(pessoas).length; j++) {
+        key = Object.keys(pessoas)[j]
+
+        console.log(pessoas[key]);
+    }
+
+</script>
+
+</html>

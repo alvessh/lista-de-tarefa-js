@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando Funções, Arrays e Objetos</title>
+</head>
+
+<body>
+    <h1>Praticando Funções, Arrays e Objetos</h1>
+</body>
+<script>
+
+    // let numerosAleatorios = [1, 2, 3, 5, 7, 11, 50, 60, 51]
+    // console.log(numerosAleatorios)
+    
+    // let soma = 0;
+    // for (let i = 0; i < numerosAleatorios.length; i++) {
+    //     let num = numerosAleatorios[i];
+    // }
+    // console.log(soma)
+    
+
+    let frutas = ["maçã", "banana", "laranja"];
+
+    console.log(frutas[2])
+
+    frutas.push("uva"); // Adiciona "uva" ao final do array
+    console.log(frutas); // ["maçã", "banana", "laranja", "uva"]
+    console.log(frutas[3])
+
+    frutas.pop(); // Remove "uva"
+    console.log(frutas); // ["maçã", "banana", "laranja"]
+
+    frutas.shift(); // Remove "maçã"
+    console.log(frutas); // ["banana", "laranja"]
+
+    frutas.unshift("melancia"); // Adiciona "melancia" no início
+    console.log(frutas); // ["melancia", "banana", "laranja"]
+
+    frutas.splice(0, 1);
+    console.log(frutas);
+</script>
+
+</html>

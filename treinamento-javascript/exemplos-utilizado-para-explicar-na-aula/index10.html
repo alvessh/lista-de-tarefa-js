@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando Funções, Arrays e Objetos</title>
+</head>
+
+<body>
+    <h1>Praticando Funções, Arrays e Objetos</h1>
+</body>
+<script>
+    let num = prompt("Informe o número 1?")
+    let opcao = prompt("Digite o simbolo de qual operação deseja efetuar: +, -, *, /")
+    let num2 = prompt("Informe o número 2?")
+
+    num = Number(num)
+    num2 = Number(num2)
+    
+    const app = descricao => "Bem vindo ao aplicativo: " + descricao;
+    var resStr = app('Calculadora: \n');
+    resStr += "Resultado: \n";
+    if (opcao === "+") {
+        console.log("somando....")
+
+        resStr += calc(num, opcao, num2);
+    } else if (opcao === "-") {
+        console.log("subtraindo....")
+
+        resStr += calc(num, opcao, num2)
+    } else if (opcao === "*") {
+        console.log("multiplicando....")
+
+        resStr += calc(num, opcao, num2)
+    } else if (opcao === "/") {
+        console.log("divindo....")
+
+        resStr += calc(num, opcao, num2);
+    } else {
+        resStr = "Opção inválida!"
+    }
+
+    alert(resStr)
+
+
+    function calc(a, operacao, b) {
+        if (operacao === '+') {
+            return (a + b);
+        } else if (operacao === '-') {
+            return (a - b);
+        } else if (operacao === '*') {
+            return (a * b);
+        } else if (operacao === '/') {
+            return (a / b);
+        } else {
+            return 0;
+        }
+    }
+
+    function soma(a, b) {
+        return (a + b);
+    }
+
+    function subtrair(a, b) {
+        return (a - b);
+    }
+
+    function multiplicar(a, b) {
+        return (a * b);
+    }
+
+    function dividir(a, b) {
+        return (a / b);
+    }
+</script>
+
+</html>

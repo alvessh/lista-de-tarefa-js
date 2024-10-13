@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulação do DOM</title>
+</head>
+
+<body>
+    <script>
+
+        // Cria um novo elemento <p>
+        let paragrafo = document.createElement('p');
+        paragrafo.textContent = 'Este é um novo parágrafo.';
+
+        // Adiciona o novo parágrafo ao corpo do documento
+        document.body.appendChild(paragrafo);
+
+        let titulo = document.createElement('h1');
+        titulo.textContent = 'Batata é bom!'
+
+        document.body.appendChild(titulo)
+
+        // Cria um novo elemento <ul>
+        let lista = document.createElement('ul');
+
+        // Cria e adiciona itens à lista
+        for (let i = 1; i <= 3; i++) {
+            let item = document.createElement('li');
+            item.textContent = 'Batata ' + i;
+            lista.appendChild(item);
+        }
+
+        // Adiciona a lista ao corpo do documento
+        document.body.appendChild(lista);
+
+    </script>
+</body>
+
+</html>

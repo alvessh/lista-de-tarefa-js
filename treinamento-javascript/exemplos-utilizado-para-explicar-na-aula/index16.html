@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Armazenamento Local com localStorage</title>
+</head>
+
+<body>
+    <script>
+
+        localStorage.setItem('nome', 'Ana');
+        localStorage.setItem('idade', '28');
+
+        // Recuperando dados
+        let nome = localStorage.getItem('nome');
+        let idade = localStorage.getItem('idade');
+
+        console.log(nome); // "Ana"
+        console.log(idade); // "28"
+
+        // Remover um item específico
+        // localStorage.removeItem('nome');
+
+        // Limpar todos os dados armazenados
+        // localStorage.clear();
+
+        let usuario = {
+            nome: "João",
+            idade: 30,
+            profissao: "Desenvolvedor",
+            saudacao: function () {
+                return "Olá, meu nome é: " + this.nome;
+            }
+        };
+
+        // Convertendo o objeto para uma string JSON e armazenando
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+
+
+        // Recuperando a string JSON e convertendo de volta para um objeto
+        let usuarioRecuperado = JSON.parse(localStorage.getItem('usuario'));
+
+        console.log(usuarioRecuperado.nome); // "João"
+        console.log(usuarioRecuperado.idade); // 30
+
+        let pessoa = {
+            nome: "Bia",
+            idade: 25,
+            profissao: "Design",
+            saudacao: function () {
+                return "Olá, meu nome é " + this.nome + " e tenho " + this.idade + " anos";
+            },
+            profissao: function () {
+                return "Trabalho com design.";
+            },
+            minhaIdade: function () {
+                return "Tenho " + this.idade + " anos."
+            }
+        };
+
+        localStorage.setItem('pessoa', JSON.stringify(pessoa));
+
+    </script>
+</body>
+
+</html>

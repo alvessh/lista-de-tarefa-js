@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulação do DOM</title>
+</head>
+
+<body>
+    <h1 id="titulo">Título Original</h1>
+    <button id="alterarTitulo">Alterar Título</button>
+    <p></p>
+    
+    <script>
+        document.getElementById("alterarTitulo").addEventListener("click", function () {
+            document.querySelector("#titulo").textContent = "Título Alterado";
+        });
+
+        let paragrafo = document.querySelector("p");
+        paragrafo.style.color = "blue";
+        paragrafo.textContent = "Texto modificado pelo JavaScript!";
+
+        let botao = document.querySelector("button");
+        botao.addEventListener("click", function () {
+            alert("Botão clicado!");
+        });
+
+    </script>
+</body>
+
+</html>
